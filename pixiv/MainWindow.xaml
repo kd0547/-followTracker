@@ -71,10 +71,11 @@
     </Window.Resources>
 
     <!-- <a href="https://www.flaticon.com/kr/free-icons/" title="도트 아이콘">도트 아이콘  제작자: Anas Mannaa - Flaticon</a> -->
-    <StackPanel>
-        <DockPanel LastChildFill="True" Height="209" VerticalAlignment="Top">
+    <StackPanel x:Name="MainContent">
+        <DockPanel LastChildFill="True" Height="210" VerticalAlignment="Top">
             <!-- 프로필 섹션 -->
-            <StackPanel DockPanel.Dock="Left" Width="300" Margin="10">
+            <StackPanel DockPanel.Dock="Left" Width="300">
+                
                 <StackPanel Orientation="Horizontal" Margin="10">
                     <Ellipse Width="50" Height="50" Fill="Pink" Stroke="Black" StrokeThickness="2"/>
                     <StackPanel Margin="10" Width="200">
@@ -83,11 +84,9 @@
                      ◼︎ Do not repost.無断転載禁止 ◼︎質問、ご依頼等ございましたら、HP記載のアドレスまでご連絡ください。(ブラウザ版で開いてください） pixivのメッセージからのご依頼、質…
                         </TextBlock>
                     </StackPanel>
-
                 </StackPanel>
 
-
-                <DockPanel Margin="0">
+                <DockPanel>
                     <Button Content="팔로우 중" DockPanel.Dock="Left" Style="{StaticResource FollowingButtonStyle}" Margin="60 0 0 0" Height="35" Width="85"/>
 
                     <Rectangle Fill="#FF949494" Width="25" Height="25" Margin="-110 0 0 0" DockPanel.Dock="Left">
@@ -96,8 +95,8 @@
                             <ImageBrush ImageSource="D:\free-icon-dots-3426508.png"/>
                         </Rectangle.OpacityMask>
                     </Rectangle>
-
                 </DockPanel>
+                
             </StackPanel>
 
             <!-- 이미지 캐러셀 섹션 -->

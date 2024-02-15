@@ -1,7 +1,13 @@
 ﻿using Newtonsoft.Json.Linq;
+using pixiv.a;
 using pixiv.Cookie;
 using pixiv.PixivTracker;
+using pixiv.user;
 using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace pixiv
 {
@@ -36,10 +42,37 @@ namespace pixiv
 
             }
 
+            this.Test();
+            
+        
+        }
+
+        public void Test()
+        {
+            UserProfilePart userProfile = new UserProfilePart();
+            FollowingPart userSubPanel = new FollowingPart();
+
+            UserProfileSection userProfileSection = new UserProfileSection(userProfile,userSubPanel);
+            UserillustsSection userillustsSection = new UserillustsSection();
 
 
+            Unit userPanel = new Unit(userProfileSection, userillustsSection);
+            this.MainContent.Children.Add(userPanel);
 
-            Console.WriteLine();
+            Border border = new Border();
+            border.Margin = new Thickness(20,10,20,10);
+
+            Rectangle rectangle = new Rectangle()
+            {
+                Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFCACACA")),
+                Height = 1,
+                Margin = new Thickness(20, 10, 20, 10),
+                HorizontalAlignment = HorizontalAlignment.Stretch
+            };
+            border.Child = rectangle;
+
+
+            this.MainContent.Children.Add(border);
         }
     }
 }

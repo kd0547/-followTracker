@@ -68,7 +68,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="user\UserSubPanel.cs" />
+    <Compile Include="user\Unit.cs" />
+    <Compile Include="user\UserProfileSection.cs" />
+    <Compile Include="user\FollowingPart.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,8 +79,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="user\Userillusts.cs" />
-    <Compile Include="user\UserProfile.cs" />
+    <Compile Include="user\UserillustsSection.cs" />
+    <Compile Include="user\UserProfilePart.cs" />
     <Compile Include="Cookie\CookieParser.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
