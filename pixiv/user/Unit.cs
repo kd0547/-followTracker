@@ -25,8 +25,10 @@ namespace pixiv.user
             this.userProfileSection = userProfileSection;
             this.userillustsSection = userillustsSection;
 
+            SetDock(userProfileSection, Dock.Left);
+
             this.Children.Add(this.userProfileSection);
-            this.Children.Add(this.userillustsSection);
+            //this.Children.Add(this.userillustsSection);
         }
 
         private void init()

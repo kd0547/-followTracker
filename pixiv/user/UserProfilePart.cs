@@ -19,7 +19,7 @@ namespace pixiv.a
         private string profileImageUrl;
         private TextBlock userComment;
 
-        private Ellipse ellipse;
+        private Grid grid;
         
 
         public bool following;
@@ -29,34 +29,64 @@ namespace pixiv.a
 
         public UserProfilePart()
         {
+            init();
+        }
+        public UserProfilePart(ImageSource image,string userName, string comment)
+        {
+            init();
+            userImage(image);
+            createUserProfile(userName, comment);
+        }
+
+        private void init()
+        {
             this.Orientation = Orientation.Horizontal;
             this.Margin = new Thickness(10);
-
-            createEl();
-            testProfile();
-
         }
 
-        public void createEl()
+
+        public void userImage(ImageSource imageSource)
         {
-            Ellipse ellipse = new Ellipse();
-            ellipse.Width = 50;
-            ellipse.Height = 50;
-            ellipse.Fill = new SolidColorBrush(Colors.Pink);
-            ellipse.Stroke = new SolidColorBrush(Colors.Black);
-            ellipse.StrokeThickness = 2;
-            this.Children.Add(ellipse);
+            Grid grid = new Grid();
+            grid.Children.Add(createRectangle(imageSource));
+            this.grid = grid;
+
+            this.Children.Add(grid);
         }
 
-        public void testProfile()
+        private Rectangle createRectangle(ImageSource imageSource)
+        {
+            Rectangle rectangle = new Rectangle();
+            rectangle.Fill = new ImageBrush(imageSource);
+
+            rectangle.Width = 50;
+            rectangle.Height = 50;
+
+            rectangle.Margin = new Thickness(0,14,0,0);
+            rectangle.VerticalAlignment = VerticalAlignment.Top;
+
+            rectangle.RadiusX = 50;
+            rectangle.RadiusY = 50;
+
+            return rectangle;
+        }
+
+
+        private void createUserProfile(string userName,string comment)
         {
             StackPanel stackPanel = new StackPanel();
             stackPanel.Margin = new Thickness(10);
             stackPanel.Width = 200;
+            stackPanel.Height = 98;
+            stackPanel.ClipToBounds = true;
+            stackPanel.Children.Add(userNameStyle(userName));
+            stackPanel.Children.Add(commentStyle(comment));
+            this.Children.Add(stackPanel);
 
-            string userName = "美和野らぐ";
-            string Comment = "◼︎ Do not repost.無断転載禁止 ◼︎質問、ご依頼等ございましたら、HP記載のアドレスまでご連絡ください。(ブラウザ版で開いてください） pixivのメッセージからのご依頼、質…\r\n";
+        }
 
+        private TextBlock userNameStyle(string userName)
+        {
 
             TextBlock userNameBlock = new TextBlock();
             userNameBlock.Text = userName;
@@ -64,17 +94,22 @@ namespace pixiv.a
             userNameBlock.FontWeight = FontWeights.Bold;
             UserName = userNameBlock;
 
-            TextBlock comment = new TextBlock();
-            comment.Text = Comment;
-            comment.FontSize = 12; // 글꼴 크기 설정
-            comment.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF555555")); // 전경색 설정
-            comment.TextDecorations = TextDecorations.Underline; // 텍스트 밑줄 장식 추가
-            comment.TextWrapping = TextWrapping.Wrap; // 텍스트 래핑 활성화
-            userComment = comment;
-
-            stackPanel.Children.Add(userNameBlock);
-            stackPanel.Children.Add(comment);
-            this.Children.Add(stackPanel);
+            return userNameBlock;
         }
+
+        private TextBlock commentStyle(string comment)
+        {
+            TextBlock commentBlock = new TextBlock();
+            commentBlock.Text = comment;
+            commentBlock.FontSize = 12; // 글꼴 크기 설정
+            commentBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF555555")); // 전경색 설정
+            commentBlock.TextDecorations = TextDecorations.Underline; // 텍스트 밑줄 장식 추가
+            commentBlock.TextWrapping = TextWrapping.Wrap; // 텍스트 래핑 활성화
+            userComment = commentBlock;
+
+            return commentBlock;
+        }
+
+
     }
 }

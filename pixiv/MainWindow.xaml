@@ -69,16 +69,25 @@
 
 
     </Window.Resources>
-
+    <ScrollViewer>
     <!-- <a href="https://www.flaticon.com/kr/free-icons/" title="도트 아이콘">도트 아이콘  제작자: Anas Mannaa - Flaticon</a> -->
     <StackPanel x:Name="MainContent">
         <DockPanel LastChildFill="True" Height="210" VerticalAlignment="Top">
             <!-- 프로필 섹션 -->
-            <StackPanel DockPanel.Dock="Left" Width="300">
-                
+                <StackPanel HorizontalAlignment ="Left" DockPanel.Dock="Left" Width="300">
+
+                <!-- userProfilePart -->
                 <StackPanel Orientation="Horizontal" Margin="10">
-                    <Ellipse Width="50" Height="50" Fill="Pink" Stroke="Black" StrokeThickness="2"/>
-                    <StackPanel Margin="10" Width="200">
+                    <Grid>
+                        <Rectangle Width="50" Height="50" Margin="0,14,0,0" VerticalAlignment="Top">
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="C:\Users\dawon\Downloads\다운로드 (29).jpg" Stretch="UniformToFill"/>
+                            </Rectangle.Fill>
+                            <Rectangle.RadiusX>50</Rectangle.RadiusX>
+                            <Rectangle.RadiusY>50</Rectangle.RadiusY>
+                        </Rectangle>
+                    </Grid>
+                    <StackPanel Margin="10" Width="200" Height="100" Orientation="Vertical">
                         <TextBlock Text="美和野らぐ" Foreground="#FF555555" FontWeight="Bold"/>
                         <TextBlock FontSize="12" Text="" Foreground="#FF555555" TextDecorations="Underline" TextWrapping="Wrap">
                      ◼︎ Do not repost.無断転載禁止 ◼︎質問、ご依頼等ございましたら、HP記載のアドレスまでご連絡ください。(ブラウザ版で開いてください） pixivのメッセージからのご依頼、質…
@@ -96,12 +105,12 @@
                         </Rectangle.OpacityMask>
                     </Rectangle>
                 </DockPanel>
-                
+
             </StackPanel>
 
             <!-- 이미지 캐러셀 섹션 -->
             <ScrollViewer  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" DockPanel.Dock="Right" Margin="10">
-                <!-- Padding="0,0,0,-5"Padding="0,0,0,-5" --> 
+                <!-- Padding="0,0,0,-5"Padding="0,0,0,-5" -->
 
                 <ScrollViewer.Resources>
                     <Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource HorizontalScrollBarStyle}" />
@@ -170,12 +179,9 @@
                 </StackPanel>
             </ScrollViewer>
         </DockPanel>
-
         <Border Margin="20 10 20 10">
             <Rectangle Height="1" Fill="#FFCACACA" HorizontalAlignment="Stretch"/>
         </Border>
-
-            
     </StackPanel>
-    
+    </ScrollViewer>
 </Window>

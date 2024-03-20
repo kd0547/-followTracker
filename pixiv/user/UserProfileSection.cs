@@ -35,6 +35,7 @@ namespace pixiv.user
         public void init()
         {
             this.Width = 300;
+            this.HorizontalAlignment = HorizontalAlignment.Left;
 
         }
     }
